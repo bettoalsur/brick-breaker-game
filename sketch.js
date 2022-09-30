@@ -1,6 +1,6 @@
 let dimx = window.innerWidth;
 let dimy = window.innerHeight;
-let margin = 70;
+let margin = 0.1*dimy;
 
 let ball;
 let bar;
@@ -11,7 +11,7 @@ function setup() {
   ball = new Ball();
   bar = new Bar();
   
-  let numx = 6
+  let numx = 7
   let numy = 5;
   
   let w = width/2/numx; 
@@ -28,6 +28,7 @@ function setup() {
 }
 
 function draw() {
+  
   background(25);
   
   stroke(255);
@@ -58,11 +59,12 @@ function draw() {
     fill(100,255,100);
     text("YOU WIN!", width/2 , height/2);
   }
+  
 }
 
 class Ball {
   constructor(){
-    this.position = createVector(width/2,height-100)
+    this.position = createVector(width/2,height-margin-11-20)
     this.velocity = createVector(0,-1);
     this.velocity.add(createVector(random(-1,1),0));
     this.velocity.mult(7);
@@ -117,6 +119,7 @@ class Ball {
   }
 }
 
+
 class Bar {
   constructor() {
     this.x = width/2;
@@ -168,4 +171,3 @@ class Brick {
     colorMode(RGB);
   }
 }
-
